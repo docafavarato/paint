@@ -27,6 +27,7 @@ class Paint
 		sf::RectangleShape ink;
 		std::vector<sf::RectangleShape> inks;
 		sf::RectangleShape menu;
+		sf::RectangleShape eraser;
 
 		sf::Font font;
 		sf::Text clear_text;
