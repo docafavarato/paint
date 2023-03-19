@@ -46,6 +46,7 @@ class Paint
 		void updateColors();
 		void updateInkColor();
 		void updateInkSize();
+		void updateEraser();
 		void pollEvents();
 		void render();
 		void renderInk();
