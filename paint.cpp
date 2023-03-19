@@ -3,7 +3,6 @@
 void Paint::initVariables()
 {
 	this->window = nullptr;
-	this->eraser = false;
 }
 
 void Paint::initWindow()
@@ -21,6 +20,8 @@ void Paint::initInk()
 
 	this->menu.setSize(sf::Vector2f(1000, 60));
 	this->menu.setFillColor(sf::Color(196, 196, 196));
+	
+	this->eraser.setSize(sf::Vector2f(20, 20));
 }
 
 void Paint::initFonts()
@@ -182,7 +183,7 @@ void Paint::updateInk()
 		bool deleted = false;
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Right))
 		{
-			if (this->inks[i].getGlobalBounds().contains(this->mousePosView))
+			if (this->inks[i].getGlobalBounds().intersects(this->eraser.getGlobalBounds()))
 			{
 				deleted = true;
 			}
@@ -224,6 +225,11 @@ void Paint::updateColors()
 		this->normal_text.setFillColor(sf::Color::White);
 		this->big_text.setFillColor(sf::Color::White);
 	}
+}
+
+void Paint::updateEraser()
+{
+	this->eraser.setPosition(this->mousePosView));
 }
 
 void Paint::update()
